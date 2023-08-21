@@ -8,5 +8,10 @@ namespace OhHttp.HttpCon
 {
     internal class HttpContext
     {
+        public string url;
+        public HttpContext(string _url)
+        {
+            url = _url;
+        }
     }
 }
