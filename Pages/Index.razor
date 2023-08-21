@@ -1,20 +1,23 @@
 ﻿@page "/"
 @using OhHttp.HttpCon
 
-<h1>Hello, world!</h1>
-Welcome to your new app.
-<SurveyPrompt Title="How is Blazor working for you?" />
-<button class="btn btn-danger" @onclick="httpget">httpget</button>
-<br/>
-<span style="height:100%;">@httpgetresult</span>
+
+<input  class="text-body"  type="text"  @bind="Url" />
+<input  type="button" class="btn btn-danger" @onclick="httpget" value="httpget"/>
+<br/><br/>
+<span style="height:100%; width:auto;">@httpgetresult</span>
 
 @code{
 
     private string httpgetresult;
+    private string Url;
+
     private void httpget()
     {
-        HttpContext hc = new HttpContext("https://www.iqiyi.com/v_l7ybhs58vc.html");
+        HttpContext hc = new HttpContext(Url);
         httpgetresult = hc.HttpGet();
     }
+
+
 
 }
