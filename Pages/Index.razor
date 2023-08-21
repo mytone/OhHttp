@@ -2,8 +2,8 @@
 @using OhHttp.HttpCon
 
 
-<input  class="text-body"  type="text"  @bind="Url" />
-<input  type="button" class="btn btn-danger" @onclick="httpget" value="httpget"/>
+<input class="text-lg-start"  type="text" size="80"  @bind="Url" />
+<input type="button" class="btn btn-sm btn-danger" @onclick="httpget" value="httpget"/>
 <br/><br/>
 <span style="height:100%; width:auto;">@httpgetresult</span>
 
@@ -12,10 +12,10 @@
     private string httpgetresult;
     private string Url;
 
-    private void httpget()
+    private async void httpget()
     {
-        HttpContext hc = new HttpContext(Url);
-        httpgetresult = hc.HttpGet();
+        HttpContext hct = new HttpContext(Url);
+        httpgetresult = await hct.HttpClientGet();
     }
 
 
