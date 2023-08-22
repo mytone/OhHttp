@@ -18,11 +18,12 @@ namespace OhHttp.HttpCon
             url = _url;
         }
 
+
         //module webclient get
         public string HttpGet()
         {
             using WebClient wc = new WebClient();
-            wc.Encoding = Encoding.UTF8;
+            //wc.Encoding = Encoding.UTF8;
             string result= wc.DownloadString(url);
             return result;
         }
@@ -30,6 +31,7 @@ namespace OhHttp.HttpCon
         private string httppost()
         {
             WebClient client = new WebClient();
+            client.Encoding = Encoding.UTF8;
             
             //添加请求头
             client.Headers.Add("key", "value");  //key标头 //value标头值
@@ -63,6 +65,9 @@ namespace OhHttp.HttpCon
                 }
             }          
         }
+
+
+
 
 
     }
