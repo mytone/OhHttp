@@ -18,7 +18,7 @@ namespace OhHttp.HttpCon
             url = _url;
         }
 
-
+        //同步提取
         //module webclient get
         public string HttpGet()
         {
