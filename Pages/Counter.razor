@@ -7,19 +7,22 @@
 
 <button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
 
-<button class="btn btn-danger" @onclick"asynchttp">HttpClientGet</button>
+<button class="btn btn-danger" @onclick="asynchttp">HttpClientGet</button>
+<textarea style="min-height:400px; width:100%; font-size:12px;">@httpgetresult</textarea>
 
 @code {
-    private int currentCount = 0;
+    private int    currentCount = 0;
+    private string httpgetresult;
 
     private void IncrementCount()
     {
         currentCount++;
     }
 
-    private async void HttpClientGet()
+    private async void asynchttp()
     {
-        
+        HttpContext hc = new HttpContext("http://www.163.com");
+        httpgetresult = await hc.HttpClientGet();
     }
 
 }
